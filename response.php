@@ -10,6 +10,9 @@ session_start();
 
 // Take user value input
 $pass_length = $_SESSION['pass-length'];
+$want_letters = $_SESSION['letters'];
+$want_numbers = $_SESSION['numbers'];
+$want_spec_char = $_SESSION['spec-char'];
 
 // Fuction to create random password
 $random_word = get_random_word($pass_length);
