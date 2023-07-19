@@ -1,7 +1,5 @@
 <?php
 
-
-
 function get_random_word($len)
 {
     $word = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9), range('!', '?'));
@@ -9,7 +7,11 @@ function get_random_word($len)
     return substr(implode($word), 0, $len);
 }
 
-if (isset($_GET['pass-length'])) {
+
+
+
+if (!empty($_GET['pass-length'])) {
+
     $pass_length = $_GET['pass-length'];
 
     $random_word = get_random_word($pass_length);
@@ -37,12 +39,12 @@ if (isset($_GET['pass-length'])) {
         <form action="" method="GET">
             <div>
                 <label for="pass-length">Inserisci il numero di caratteri della password che vuoi generare</label>
-                <input id="pass-length" type="number" name="pass-length">
+                <input id="pass-length" type="number" name="pass-length" min='1' max='30'>
             </div>
             <button class="btn btn-primary mt-3" type="submit">Crea</button>
         </form>
 
-        <?php if (isset($_GET['pass-length'])) : ?>
+        <?php if (!empty($_GET['pass-length'])) : ?>
             <div class="alert alert-primary mt-5" role="alert">
                 La password generata è <strong><?= $random_word ?></strong>
             </div>
