@@ -17,7 +17,17 @@
 </head>
 
 <body>
+    <div class="container">
+        <h1 class="my-5">PASSWORD GENERATOR</h1>
+        <form action="" method="GET">
+            <div>
+                <label for="pass-length">Inserisci il numero di caratteri della password che vuoi generare</label>
+                <input id="pass-length" type="number" name="pass-length">
+            </div>
+            <button class="btn btn-primary mt-3" type="submit">Crea</button>
+        </form>
 
+    </div>
 </body>
 
 </html>
