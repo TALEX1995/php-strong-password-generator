@@ -1,6 +1,6 @@
 <?php
 
-$pass_length = $_GET['pass-length'] ?? '';
+
 
 function get_random_word($len)
 {
@@ -10,7 +10,9 @@ function get_random_word($len)
 }
 
 if (isset($_GET['pass-length'])) {
-    var_dump(get_random_word($pass_length));
+    $pass_length = $_GET['pass-length'];
+
+    $random_word = get_random_word($pass_length);
 };
 
 
@@ -39,6 +41,12 @@ if (isset($_GET['pass-length'])) {
             </div>
             <button class="btn btn-primary mt-3" type="submit">Crea</button>
         </form>
+
+        <?php if (isset($_GET['pass-length'])) : ?>
+            <div class="alert alert-primary mt-5" role="alert">
+                La password generata è <strong><?= $random_word ?></strong>
+            </div>
+        <?php endif ?>
 
     </div>
 </body>
