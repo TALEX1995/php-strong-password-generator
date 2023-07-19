@@ -1,5 +1,18 @@
 <?php
 
+$pass_length = $_GET['pass-length'] ?? '';
+
+function get_random_word($len)
+{
+    $word = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9), range('!', '?'));
+    shuffle($word);
+    return substr(implode($word), 0, $len);
+}
+
+if (isset($_GET['pass-length'])) {
+    var_dump(get_random_word($pass_length));
+};
+
 
 ?>
 
